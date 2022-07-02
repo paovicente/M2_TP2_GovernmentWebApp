@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Senate Data</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-white">
+            <div class="container-fluid">
+                <h2 class="navbar-text text-dark">
+                    Data Insight Group Logo
+                </h2> 
+                <div class="p-2"> 
+                    <a href="mailto:info@DataInsightGroup.net" class="navbar-brand text-info">
+                        <img src="./img/mensaje.png" alt="" width="40" height="35" class="d-inline-block align-text-top">
+                        info@DataInsightGroup.net
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./home.html">Home</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Congress 117
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="./house-data.html">House</a></li>
+                      <li><a class="dropdown-item" href="./senate-data.html">Senate</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <table id="senate-data" class="mx-auto border border-dark border-3 my-5"></table>
+    </main>
+    <footer>
+        <div class="d-flex mx-auto bg-light border border-dark justify-content-center">
+            <div class="d-flex flex-row container-flex p-2">
+                <img src="./img/derechos-de-autor.png" width="40" height="35" class="d-inline-block align-text-top my-1">
+                <h4 class="px-2 py-2">
+                    2021 Data Insight Group
+                </h4>
+            </div>
+            <div class="d-flex flex-row container-flex">
+                <h4 class="ms-auto px-2 py-3">
+                    All Rights Reserved
+                </h4>
+            </div>
+            
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./senate.js"></script>
+    <script src="./load-senate.js"></script>
+</body>
+</html>
