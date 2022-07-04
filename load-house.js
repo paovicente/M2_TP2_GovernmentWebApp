@@ -1,6 +1,6 @@
-let copySenate = [...senate.results[0].members] //traigo los miembros del senate
+let copyHouse = [...house.results[0].members] //traigo los miembros de la house
 
-function setHeaders(senateTable,rowData){
+function setHeaders(houseTable,rowData){
     let headerName = document.createElement("th")
     let headerParty = document.createElement("th")
     let headerState = document.createElement("th")
@@ -19,18 +19,18 @@ function setHeaders(senateTable,rowData){
     rowData.appendChild(headerYears)
     rowData.appendChild(headerVotes)
 
-    senateTable.appendChild(rowData)
+    houseTable.appendChild(rowData)
 }
 
-function createTable(copySenate){
+function createTable(copyHouse){
   
-    let senateTable = document.querySelector("#senate-data")
+    let houseTable = document.querySelector("#house-data")
 
     let rowData = document.createElement("tr")
     //seteo los headers
-    setHeaders(senateTable,rowData) 
+    setHeaders(houseTable,rowData) 
 
-    for (data of copySenate){
+    for (data of copyHouse){
         rowData = document.createElement("tr")  //creo la fila
         
         
@@ -58,8 +58,8 @@ function createTable(copySenate){
         rowData.appendChild(cellSeniority)
         rowData.appendChild(cellPercentage)
                 
-        senateTable.appendChild(rowData)
+        houseTable.appendChild(rowData)
     }
 }
 
-createTable(copySenate)
+createTable(copyHouse)
