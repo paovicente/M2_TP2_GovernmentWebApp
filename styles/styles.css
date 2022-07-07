@@ -11,3 +11,17 @@
 .bodyHome{
     min-height: 100vh;
 }
+
+.headTable{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.senate-table{
+    margin: 0 auto;
+    width: 75vw;
+}
+
+.table>:not(caption)>*>*{
+    padding: 0.5rem 1.4vw;
+}

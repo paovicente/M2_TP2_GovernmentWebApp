@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Senate Data</title>
 </head>
-<body>
+<body class="d-flex flex-column bodyHome">
     <header>
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h2 class="text-dark py-3 fs-1">
@@ -65,24 +65,39 @@
             <h5 class="mx-2 mx-md-4 mx-lg-5 fw-bold">
                 Select an option
             </h5>
-            <div class="d-flex flex-column flex-sm-row mx-2 mx-md-4 mx-lg-5">
-                <label for="democrat">
-                    Democrat
-                    <input type="checkbox" class="me-3" name="ideology" id="democrat">
-                </label>
-                <label for="republican">
-                    Republican
-                    <input type="checkbox" class="me-3" name="ideology" id="republican">
-                </label>
-                <label for="independent">
-                    Independent
-                    <input type="checkbox" class="me-3" name="ideology" id="independent">
-                </label>
-            </div>
+            <form action="" class="formCheck">
+                <div class="d-flex flex-column flex-sm-row mx-2 mx-md-4 mx-lg-5">
+                    <label for="democrat">
+                        Democrat
+                        <input type="checkbox" class="me-3 ideology" name="ideology" value="D">
+                    </label>
+                    <label for="republican">
+                        Republican
+                        <input type="checkbox" class="me-3 ideology" name="ideology" value="R">
+                    </label>
+                    <label for="independent">
+                        Independent
+                        <input type="checkbox" class="me-3 ideology" name="ideology" value="ID">
+                    </label>
+                </div>
+            </form>
         </section>
-        <table id="senate-data" class="table my-5 mx-0 text-center"></table>
+        <div class="d-flex justify-content-center me-auto ms-auto col-sm-8">
+            <table id="senate-data" class="table my-5 mx-0 text-center senate-table table-striped">
+                <thead class="headTable text-center">
+                    <tr class="text-center">
+                        <th>Name</th>
+                        <th>Party</th>
+                        <th>State</th>
+                        <th>Years in Office</th>
+                        <th>% Votes w/ Party</th>
+                    </tr>
+                </thead>
+                <tbody class="bodyTable"></tbody>
+            </table>
+        </div>
     </main>
-    <footer>
+    <footer class="mt-auto">
         <div class="d-flex mx-auto bg-light border border-dark justify-content-center">
             <div class="d-flex flex-row container-flex p-2">
                 <img src="./img/derechos-de-autor.png" width="40" height="35" class="d-inline-block align-text-top my-1" alt="logoDerechosDeAutor">
