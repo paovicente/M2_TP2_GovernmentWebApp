@@ -32,8 +32,12 @@ function changeTable(copy){
         cellParty.innerHTML = `${data.party}`
         cellState.innerHTML = `${data.state}`
         cellSeniority.innerHTML = `${data.seniority}`
-        cellPercentage.innerHTML = `${data.votes_with_party_pct}%` 
-            
+
+        if (!data.votes_with_party_pct)
+            cellPercentage.innerHTML = "---" 
+        else
+            cellPercentage.innerHTML = `${data.votes_with_party_pct}`
+        
         rowData.appendChild(cellFullName)
         rowData.appendChild(cellParty)
         rowData.appendChild(cellState)
