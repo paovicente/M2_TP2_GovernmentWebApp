@@ -17,11 +17,19 @@
     vertical-align: middle;
 }
 
-.senate-table{
+.data-table{
     margin: 0 auto;
     width: 75vw;
 }
 
 .table>:not(caption)>*>*{
     padding: 0.5rem 1.4vw;
+}
+
+.option-state:hover {
+    background-color: #3264BA;
+}
+
+.select-state{
+    width: 50vw;
 }

@@ -35,7 +35,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Congress 102
+                        Congress 117
                         </a>
                         <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item text-sucess active" aria-current="page" id="house" href="./house-data.html">House</a></li>
@@ -62,7 +62,44 @@
                 entitled to at least one representative.
             </p>
         </div>
-        <table id="house-data" class="table my-5 mx-0 text-center"></table>
+        <section>
+            <h5 class="mx-2 mx-md-4 mx-lg-5 fw-bold">
+                Select an option
+            </h5>
+            <form action="" class="formCheck">
+                <div class="d-flex flex-column flex-sm-row mx-2 mx-md-4 mx-lg-5">
+                    <label for="democrat">
+                        Democrat
+                        <input type="checkbox" class="me-3 ideology" name="ideology" value="D">
+                    </label>
+                    <label for="republican">
+                        Republican
+                        <input type="checkbox" class="me-3 ideology" name="ideology" value="R">
+                    </label>
+                    <label for="independent">
+                        Independent
+                        <input type="checkbox" class="me-3 ideology" name="ideology" value="ID">
+                    </label>
+                </div>
+                <select class="form-select form-select-md mx-2 mx-md-4 mx-lg-5 fw-bold select-state my-3 bg-dark text-warning" aria-label="selectState">
+                    <option class="default-option" selected>Select a State</option>
+                </select>
+            </form>
+        </section>
+        <div class="d-flex justify-content-center me-auto ms-auto col-sm-8">
+            <table id="house-table" class="table my-5 mx-0 text-center table-striped data-table">
+                <thead class="headTable text-center">
+                    <tr class="text-center">
+                        <th>Name</th>
+                        <th>Party</th>
+                        <th>State</th>
+                        <th>Years in Office</th>
+                        <th>% Votes w/ Party</th>
+                    </tr>
+                </thead>
+                <tbody class="bodyTable"></tbody>
+            </table>
+        </div>
     </main>
     <footer class="mt-auto">
         <div class="d-flex mx-auto bg-light border border-dark justify-content-center">
@@ -81,6 +118,6 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="./house.js"></script>
-    <script src="./load-house.js"></script>
+    <script src="./load-data.js"></script>
 </body>
 </html>
