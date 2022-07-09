@@ -111,7 +111,6 @@ form.addEventListener('change',function(){
   
     let isChecked = checks.filter(element => element.checked === true)
 
-    console.log(isChecked[0])
     let filteredByParty = copyChamber.filter(element => sameParty(element,isChecked)) 
     
     filteredByParty.sort(function(person1,person2){
@@ -123,7 +122,6 @@ form.addEventListener('change',function(){
         return 0
     })
 
-    console.log("len de filtered by party",filteredByParty.length,filteredByParty)
     changeTable(filteredByParty)
     
     if (select.value != "Select a State"){
