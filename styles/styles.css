@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#home, #house, #senate, #house-attendance {
+#home, #house, #senate, #house-attendance, #senate-attendance, #house-loyalty, #senate-loyalty {
     pointer-events: none;
 }
 
