@@ -112,7 +112,7 @@ function generateTableIdeology(arrayParty, propertyPercentage, propertyQuantity,
         finalRow(bodyTable)
 }
 
-function generateInfoTable(body, propertyObject, propertyCol1, property, typeTable){
+function generateInfoTable(body, propertyObject, propertyCol1, property){
 
     statisticsObject[propertyObject].forEach(element =>{
         let row = document.createElement("tr")
@@ -173,7 +173,7 @@ function generateTable(copyChamber, body, typeTable, propertyObject, property, p
         statisticsObject[propertyObject] = statisticsObject[propertyObject].reverse()
     }
     
-    generateInfoTable(body, propertyObject, propertyCol1, property, typeTable)
+    generateInfoTable(body, propertyObject, propertyCol1, property)
 }
 //--------------------VARIABLES, CONSTANTES Y LLAMADOS A FUNCIONES
 const democrats = filterIdeology("D", copyChamber)
