@@ -2597,8 +2597,8 @@ const senate = {
                   "state": "GA",
                   "senate_class": "3",
                   "state_rank": "senior",
-                  "lis_id": "S405"
-                  ,"missed_votes_pct": 0.00,
+                  "lis_id": "S405",
+                  "missed_votes_pct": 0.00,
                   "votes_with_party_pct": 100.00,
                   "votes_against_party_pct": 0.00
                 },

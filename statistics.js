@@ -112,9 +112,9 @@ function generateTableIdeology(arrayParty, propertyPercentage, propertyQuantity,
         finalRow(bodyTable)
 }
 
-function generateInfoTableEngaged(propertyEngaged, typeTable){
+function generateInfoTable(body, propertyObject, propertyCol1, property, typeTable){
 
-    statisticsObject[propertyEngaged].forEach(element =>{
+    statisticsObject[propertyObject].forEach(element =>{
         let row = document.createElement("tr")
 
         let cell = document.createElement("td")   
@@ -130,47 +130,50 @@ function generateInfoTableEngaged(propertyEngaged, typeTable){
         row.appendChild(cell)
 
         cell = document.createElement("td")
-        if (element.missed_votes)
-            cell.innerHTML = element.missed_votes
+        if (element[propertyCol1])
+            cell.innerHTML = element[propertyCol1]
         else
             cell.innerHTML = 0
 
         row.appendChild(cell)
 
         cell = document.createElement("td")
-        cell.innerHTML = element.missed_votes_pct
+        if (element[property])
+            cell.innerHTML = element[property]
+        else
+            cell.innerHTML = 0
+
         row.appendChild(cell)
 
-        if (typeTable === "least-table")
-            bodyLeastEngaged.appendChild(row)
-        else
-            bodyMostEngaged.appendChild(row)
+        body.appendChild(row)
     })
 
 }
 
-function generateTableEngaged(copyChamber, typeTable, propertyEngaged){
+function generateTable(copyChamber, body, typeTable, propertyObject, property, propertyCol1){
     let chamber = copyChamber.map(element => element)
     
-    chamber = chamber.filter(element => element.missed_votes_pct)
-    
-    let orderedByMissedVotes = chamber.sort(function orderByMissedVotes(person1, person2){
+    let quantityElements = chamber.length * 0.1 
 
-        return person1.missed_votes_pct - person2.missed_votes_pct  //least to greatest
+    quantityElements = Math.ceil(quantityElements)
+
+    chamber = chamber.filter(element => element[property])
+
+    let orderedByProperty = chamber.sort(function orderByProperty(person1, person2){       
+        return person1[property] - person2[property]  //least to greatest
     })
     
-    let quantityElements = orderedByMissedVotes.length * 0.1 
-    quantityElements = Math.ceil(quantityElements)
-    
-    if (typeTable === "most-table")
-        statisticsObject[propertyEngaged] = orderedByMissedVotes.slice(0,quantityElements)
+    if (typeTable === "most-table" || typeTable === "leastLoyal-table")
+        statisticsObject[propertyObject] = orderedByProperty.slice(0,quantityElements)
     else if (typeTable === "least-table"){
-        statisticsObject[propertyEngaged] = orderedByMissedVotes.slice(orderedByMissedVotes.length-1-quantityElements,orderedByMissedVotes.length-1)
-        statisticsObject[propertyEngaged] = statisticsObject[propertyEngaged].reverse()
+        statisticsObject[propertyObject] = orderedByProperty.slice(orderedByProperty.length-1-quantityElements,orderedByProperty.length-1)
+        statisticsObject[propertyObject] = statisticsObject[propertyObject].reverse()
+    }else if(typeTable === "mostLoyal-table"){
+        statisticsObject[propertyObject] = orderedByProperty.slice(orderedByProperty.length-quantityElements,orderedByProperty.length)
+        statisticsObject[propertyObject] = statisticsObject[propertyObject].reverse()
     }
     
-    generateInfoTableEngaged(propertyEngaged, typeTable)
-
+    generateInfoTable(body, propertyObject, propertyCol1, property, typeTable)
 }
 //--------------------VARIABLES, CONSTANTES Y LLAMADOS A FUNCIONES
 const democrats = filterIdeology("D", copyChamber)
@@ -187,10 +190,18 @@ generateTableIdeology(democrats, "votes_party_democrats_pct", statisticsObject.n
 generateTableIdeology(republicans, "votes_party_republicans_pct", statisticsObject.number_of_republicans, "Republicans")
 generateTableIdeology(independents, "votes_party_independents_pct", statisticsObject.number_of_independents, "Independents")
 
-let bodyLeastEngaged = document.querySelector(".bodyLeastEngaged")
-generateTableEngaged(copyChamber,"least-table","leastEngaged")
+if (documentTitle === "Senate Attendance" || documentTitle === "House Attendance"){
+    let bodyLeastEngaged = document.querySelector(".bodyLeastEngaged")
+    generateTable(copyChamber, bodyLeastEngaged,"least-table","leastEngaged","missed_votes_pct","missed_votes")
 
-console.log(statisticsObject)
-let bodyMostEngaged = document.querySelector(".bodyMostEngaged")
-generateTableEngaged(copyChamber,"most-table","mostEngaged")
-console.log(statisticsObject)
+    let bodyMostEngaged = document.querySelector(".bodyMostEngaged")
+    generateTable(copyChamber, bodyMostEngaged, "most-table","mostEngaged","missed_votes_pct","missed_votes")
+}else if (documentTitle === "Senate Loyalty" || documentTitle === "House Loyalty"){
+    let bodyLeastLoyal = document.querySelector(".bodyLeastLoyal")
+    generateTable(copyChamber, bodyLeastLoyal,"leastLoyal-table","leastLoyalty","votes_with_party_pct","total_votes")
+
+    let bodyMostLoyal = document.querySelector(".bodyMostLoyal")
+    generateTable(copyChamber, bodyMostLoyal, "mostLoyal-table","mostLoyalty","votes_with_party_pct","total_votes")
+}
+
+//console.log(statisticsObject)
